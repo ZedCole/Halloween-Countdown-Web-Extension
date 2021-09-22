@@ -4,7 +4,7 @@
     "description": "A countdown for the spookiest of seasons.\nThis extension will display a countdown to Halloween, changing to a Halloween theme during October.\nWatch the year pass by until it's time to be spooky again!",
     "version": "1.0",
     "action": {
-        "defualt_popup": "popup.html",
+        "default_popup": "popup.html",
         "default_title": "Halloween Countdown"
     },
     "icons": {
