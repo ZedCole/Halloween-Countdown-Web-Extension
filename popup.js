@@ -17,3 +17,10 @@ function dToday(){
 }
 
 dToday();
+
+// Check if Halloween has already been this year
+function whenIsHalloween() {
+}
+
+// Uncomment when draw function is ready
+//setInterval(draw, 500);
