@@ -1,6 +1,8 @@
 var dateHalloween = new Date(); 
 var dateToday = new Date();
 var writeArea = document.getElementById('countdown');
+var isItOctober = false;
+var isTodayHalloween = false;
 var c_days,c_hours,c_minutes,c_seconds
 const _DATE_FORMATING = 1000 * 60 * 60 * 24;
 
@@ -12,15 +14,21 @@ function getDateToday(){
 }
 
 function getDateHalloween() {
-    var today = new Date();
+    var today = new Date(2021,9,30);
     var offset = today.getTimezoneOffset() / 60;
     today.setUTCHours(today.getUTCHours() - offset);
-    if (today.getUTCMonth() > 9) {
+    if (today.getUTCMonth() > 9) { // Past October
         y = today.getUTCFullYear() + 1;
         dateHalloween = new Date(Date.UTC(y,9,31, offset));
-    } else {
+    } else { // Is or Before October
         y = today.getUTCFullYear();
         dateHalloween = new Date(Date.UTC(y,9,31, offset));
+        if (today.getUTCMonth() == 9) { // Is it October
+            isItOctober = true;
+            if (today.getUTCDate() == 31) { // Is it Halloween
+                isTodayHalloween = true;
+            }
+        }
     }
 }
 
