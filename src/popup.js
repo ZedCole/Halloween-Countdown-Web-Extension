@@ -69,7 +69,7 @@ function fontLoad() {
 function clearCanvas() {
     w = writeArea.width;
     h = writeArea.height;
-    ctx.fillStyle = '#ff9900';
+    ctx.fillStyle = '#D4641C';
     ctx.fillRect(0,0,w,h)
 }
 
