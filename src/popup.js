@@ -11,15 +11,12 @@ ctx.textAlign = 'center';
 
 function getDateToday(){
     var today = new Date();
-    var offset = today.getTimezoneOffset() / 60;
-    today.setUTCHours(today.getUTCHours() - offset);
     dateToday = today;
 }
 
 function getDateHalloween() {
     var today = new Date();
     var offset = today.getTimezoneOffset() / 60;
-    today.setUTCHours(today.getUTCHours() - offset);
     if (today.getUTCMonth() > 9) { // Past October
         y = today.getUTCFullYear() + 1;
         dateHalloween = new Date(Date.UTC(y,9,31, offset));
