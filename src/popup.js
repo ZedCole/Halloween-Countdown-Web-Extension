@@ -7,6 +7,7 @@ var isTodayHalloween = false;
 var c_days,c_hours,c_minutes,c_seconds;
 var jackSource = new Image();
 var spriteLoop = 0;
+var pos = 0;
 jackSource.src = 'assets/jack-o-sprite.png';
 const _DATE_FORMATING = 1000 * 60 * 60 * 24;
 
@@ -106,11 +107,22 @@ function octText() {
     ctx.fillText("IT'S SPOOKY SEASON",w,30);
 }
 
-function octTheme() {
-    ctx.drawImage(jackSource, 0, 0, 80, 80, 20, 100, 50, 50);
-    ctx.drawImage(jackSource, 0, 0, 80, 80, 90, 100, 50, 50);
-    ctx.drawImage(jackSource, 0, 0, 80, 80, 160, 100, 50, 50);
-    ctx.drawImage(jackSource, 0, 0, 80, 80, 230, 100, 50, 50);
+function octTheme(spriteLoop) {
+    if (spriteLoop < 5){
+        pos += 80;
+        if (pos > 320) {
+            pos = 320;
+        }
+    } else {
+        pos -= 80;
+        if (pos < 0) {
+            pos = 0;
+        }
+    }
+    ctx.drawImage(jackSource, pos, 0, 80, 80, 20, 100, 50, 50);
+    ctx.drawImage(jackSource, pos, 0, 80, 80, 90, 100, 50, 50);
+    ctx.drawImage(jackSource, pos, 0, 80, 80, 160, 100, 50, 50);
+    ctx.drawImage(jackSource, pos, 0, 80, 80, 230, 100, 50, 50);
 }
 
 function mainLoop() {
@@ -123,7 +135,11 @@ function mainLoop() {
     } else {
         if (isItOctober == true) {
             octText();
-            octTheme();
+            octTheme(spriteLoop);
+            spriteLoop += 1;
+            if (spriteLoop == 9) {
+                spriteLoop = 0;
+            }
         } else {
             normText();
         }
