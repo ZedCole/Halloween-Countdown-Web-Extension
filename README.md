@@ -10,4 +10,4 @@ A small chrome extension to countdown to Halloween. Will be Halloween themed dur
  - [x] Change popups theme during October
     - [x] Create some animations
     - [x] Implement animation
-- [ ] Add scene for Halloween Day
+- [x] Add scene for Halloween Day
