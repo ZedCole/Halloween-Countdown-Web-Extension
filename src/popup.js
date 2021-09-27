@@ -4,7 +4,10 @@ var writeArea = document.getElementById('countdown');
 var ctx = writeArea.getContext('2d');
 var isItOctober = false;
 var isTodayHalloween = false;
-var c_days,c_hours,c_minutes,c_seconds
+var c_days,c_hours,c_minutes,c_seconds;
+var jackSource = new Image();
+var spriteLoop = 0;
+jackSource.src = 'assets/jack-o-sprite.png';
 const _DATE_FORMATING = 1000 * 60 * 60 * 24;
 
 ctx.textAlign = 'center';
@@ -15,7 +18,7 @@ function getDateToday(){
 }
 
 function getDateHalloween() {
-    var today = new Date();
+    var today = new Date(2021,9,20);
     var offset = today.getTimezoneOffset() / 60;
     if (today.getUTCMonth() > 9) { // Past October
         y = today.getUTCFullYear() + 1;
@@ -103,6 +106,13 @@ function octText() {
     ctx.fillText("IT'S SPOOKY SEASON",w,30);
 }
 
+function octTheme() {
+    ctx.drawImage(jackSource, 0, 0, 80, 80, 20, 100, 50, 50);
+    ctx.drawImage(jackSource, 0, 0, 80, 80, 90, 100, 50, 50);
+    ctx.drawImage(jackSource, 0, 0, 80, 80, 160, 100, 50, 50);
+    ctx.drawImage(jackSource, 0, 0, 80, 80, 230, 100, 50, 50);
+}
+
 function mainLoop() {
     getDateToday();
     getDateHalloween();
@@ -113,6 +123,7 @@ function mainLoop() {
     } else {
         if (isItOctober == true) {
             octText();
+            octTheme();
         } else {
             normText();
         }
