@@ -19,14 +19,14 @@ function getDateToday(){
 }
 
 function getDateHalloween() {
-    var today = new Date(2021,9,20);
+    var today = new Date();
     var offset = today.getTimezoneOffset() / 60;
     if (today.getUTCMonth() > 9) { // Past October
         y = today.getUTCFullYear() + 1;
-        dateHalloween = new Date(Date.UTC(y,9,31, offset));
+        dateHalloween = new Date(Date.UTC(y,9,31,offset));
     } else { // Is or Before October
         y = today.getUTCFullYear();
-        dateHalloween = new Date(Date.UTC(y,9,31, offset));
+        dateHalloween = new Date(Date.UTC(y,9,31,offset));
         if (today.getUTCMonth() == 9) { // Is it October
             isItOctober = true;
             if (today.getUTCDate() == 31) { // Is it Halloween
@@ -107,6 +107,16 @@ function octText() {
     ctx.fillText("IT'S SPOOKY SEASON",w,30);
 }
 
+function hallowText() {
+    w = writeArea.width / 2;
+    h = writeArea.height / 2;
+    ctx.fillStyle = "#000000";
+    ctx.font = '40px Creepster-Regular';
+    ctx.fillText("HAPPY HALLOWEEN!",w,h);
+    ctx.font = '30px Creepster-Regular';
+    ctx.fillText("Go be spooky!",w,h+40);
+}
+
 function octTheme(spriteLoop) {
     if (spriteLoop < 5){
         pos += 80;
@@ -131,7 +141,7 @@ function mainLoop() {
     timeDifference(dateHalloween, dateToday);
     clearCanvas();
     if (isTodayHalloween == true) {
-        
+        hallowText();
     } else {
         if (isItOctober == true) {
             octText();
