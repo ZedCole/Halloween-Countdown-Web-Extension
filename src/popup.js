@@ -21,13 +21,13 @@ function getDateToday(){
 function getDateHalloween() {
     var today = new Date();
     var offset = today.getTimezoneOffset() / 60;
-    if (today.getUTCMonth() > 9) { // Past October
+    if (today.getUTCMonth() > 8) { // Past October
         y = today.getUTCFullYear() + 1;
         dateHalloween = new Date(Date.UTC(y,9,31,offset));
     } else { // Is or Before October
         y = today.getUTCFullYear();
         dateHalloween = new Date(Date.UTC(y,9,31,offset));
-        if (today.getUTCMonth() == 9) { // Is it October
+        if (today.getUTCMonth() == 8) { // Is it October
             isItOctober = true;
             if (today.getUTCDate() == 31) { // Is it Halloween
                 isTodayHalloween = true;
